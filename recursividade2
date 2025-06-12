@@ -1,0 +1,22 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] vetor = new int[20];
+        Random rand = new Random();
+
+        for (int i = 0; i < vetor.Length; i++)
+            vetor[i] = rand.Next(5, 99); // gerador de números 
+
+        Console.WriteLine($"Menor número: {EncontrarMenor(vetor, 0, vetor[0])}");
+    }
+
+    static int EncontrarMenor(int[] v, int i, int menor)
+    {
+        if (i == v.Length) return menor; 
+        if (v[i] < menor) menor = v[i]; 
+        return EncontrarMenor(v, i + 1, menor); // Chamada recursiva
+    }
+}
